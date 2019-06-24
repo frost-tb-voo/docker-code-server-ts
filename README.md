@@ -14,8 +14,8 @@ See [novsyama/code-server-ts](https://hub.docker.com/r/novsyama/code-server-ts/)
 ```bash
 ABS_DIR=<workspace absolute path>
 
-docker pull novsyama/code-server-ts
-sudo -E docker run --name=vscode --net=host -d \
+sudo docker pull novsyama/code-server-ts
+sudo docker run --name=vscode --net=host -d \
  -v "${ABS_DIR}:/home/coder/project" \
  -w /home/coder/project \
  novsyama/code-server-ts \
