@@ -7,28 +7,35 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/frost-tb-voo/docker-code-server-ts"
 
 USER root
-RUN apt-get update \
- && apt-get -y install curl zip unzip npm \
- && apt-get -y autoclean \
- && apt-get -y autoremove \
- && rm -rf /var/lib/apt/lists
-RUN npm install -g n \
- && n stable
-RUN npm install -g yarn typescript
 WORKDIR /prettier
-RUN curl -L -o prettier-vscode-1.7.0.vsix https://github.com/prettier/prettier-vscode/releases/download/v1.7.0/prettier-vscode-1.7.0.vsix \
+RUN apt-get -qq update \
+ && apt-get -q -y install npm \
+ && apt-get -q -y autoclean \
+ && apt-get -q -y autoremove \
+ && rm -rf /var/lib/apt/lists \
+ && npm install -g n --silent \
+ && n stable
+RUN npm install -g yarn typescript --silent
+RUN apt-get -qq update \
+ && apt-get -q -y install curl zip unzip \
+ && curl -L -o prettier-vscode-1.7.0.vsix https://github.com/prettier/prettier-vscode/releases/download/v1.7.0/prettier-vscode-1.7.0.vsix \
  && unzip -q prettier-vscode-1.7.0.vsix \
- && rm prettier-vscode-1.7.0.vsix
-WORKDIR /prettier/extension
-RUN npm install \
+ && rm prettier-vscode-1.7.0.vsix \
+ && cd /prettier/extension \
+ && npm install \
  && npm audit fix --force \
  && rm -r node_modules package-lock.json \
- && yarn install
-WORKDIR /prettier
-RUN zip -q -r prettier-vscode-1.7.0.vsix .
+ && yarn install \
+ && cd /prettier \
+ && zip -q -r prettier-vscode-1.7.0.vsix . \
+ && rm -r /prettier/extension \
+ && apt-get -q -y purge curl zip unzip \
+ && apt-get -q -y autoclean \
+ && apt-get -q -y autoremove \
+ && rm -rf /var/lib/apt/lists
 
 USER coder
-RUN code-server --install-extension prettier-vscode-1.7.0.vsix
+RUN code-server --install-extension /prettier/prettier-vscode-1.7.0.vsix
 
 USER root
 ADD settings.json /home/coder/.local/share/code-server/User/settings.json
