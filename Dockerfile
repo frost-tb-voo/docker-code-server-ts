@@ -9,30 +9,34 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
 USER root
 WORKDIR /prettier
 RUN apt-get -qq update \
- && apt-get -q -y install npm \
+ && apt-get -qq -y install npm \
  && apt-get -q -y autoclean \
  && apt-get -q -y autoremove \
  && rm -rf /var/lib/apt/lists \
  && npm install -g n --silent \
+ && npm cache clean --force -g \
  && n stable
-RUN npm install -g yarn typescript --silent
+RUN npm install -g yarn typescript --silent \
+ && npm cache clean --force -g
 RUN apt-get -qq update \
- && apt-get -q -y install curl zip unzip \
+ && apt-get -qq -y install curl zip unzip \
  && curl -L -o prettier-vscode-1.7.0.vsix https://github.com/prettier/prettier-vscode/releases/download/v1.7.0/prettier-vscode-1.7.0.vsix \
  && unzip -q prettier-vscode-1.7.0.vsix \
  && rm prettier-vscode-1.7.0.vsix \
  && cd /prettier/extension \
  && npm install \
  && npm audit fix --force \
+ && npm cache clean --force \
  && rm -r node_modules package-lock.json \
  && yarn install \
+ && yarn cache clean \
  && cd /prettier \
  && zip -q -r prettier-vscode-1.7.0.vsix . \
- && rm -r /prettier/extension \
  && apt-get -q -y purge curl zip unzip \
  && apt-get -q -y autoclean \
  && apt-get -q -y autoremove \
- && rm -rf /var/lib/apt/lists
+ && rm -rf /var/lib/apt/lists \
+ && rm -r /prettier/extension
 
 USER coder
 RUN code-server --install-extension /prettier/prettier-vscode-1.7.0.vsix
