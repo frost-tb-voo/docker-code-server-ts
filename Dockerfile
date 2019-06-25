@@ -38,6 +38,7 @@ RUN apt-get -qq update \
  && rm -rf /var/lib/apt/lists \
  && rm -r /prettier/extension
 
+WORKDIR /home/coder/project
 USER coder
 RUN code-server --install-extension /prettier/prettier-vscode-1.7.0.vsix
 
@@ -48,6 +49,5 @@ RUN cd / \
  && chown -hR coder /home/coder
 
 USER coder
-WORKDIR /home/coder/project
 
 
