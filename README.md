@@ -1,7 +1,7 @@
 # docker-code-server-ts
 [![](https://img.shields.io/travis/frost-tb-voo/docker-code-server-ts/master.svg?style=flat-square)](https://travis-ci.org/frost-tb-voo/docker-code-server-ts/)
-[![GitHub stars](https://img.shields.io/github/stars/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/code-server-ts/stargazers)
-[![GitHub license](https://img.shields.io/github/license/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/code-server-ts/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/docker-code-server-ts/stargazers)
+[![GitHub license](https://img.shields.io/github/license/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/docker-code-server-ts/blob/master/LICENSE)
 [![Docker pulls](https://img.shields.io/docker/pulls/novsyama/code-server-ts.svg?style=flat-square)](https://hub.docker.com/r/novsyama/code-server-ts)
 [![Docker image-size](https://img.shields.io/microbadger/image-size/novsyama/code-server-ts.svg?style=flat-square)](https://microbadger.com/images/novsyama/code-server-ts)
 ![Docker layers](https://img.shields.io/microbadger/layers/novsyama/code-server-ts.svg?style=flat-square)
