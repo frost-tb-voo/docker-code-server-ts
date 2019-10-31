@@ -41,7 +41,7 @@ RUN apt-get -qq update \
  && npm cache clean --force -g \
  && rm -rf ~/.npm \
  && n stable
-RUN npm install -g typescript --silent \
+RUN npm install -g typescript ts-node --silent \
  && npm cache clean --force -g \
  && rm -rf ~/.npm
 
