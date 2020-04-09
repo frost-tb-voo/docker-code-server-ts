@@ -21,7 +21,7 @@ RUN git clone https://github.com/prettier/prettier-vscode.git \
  && cd ../ \
  && rm -rf /prettier/prettier-vscode
 
-FROM codercom/code-server:v2
+FROM codercom/code-server
 MAINTAINER Novs Yama
 
 ARG VCS_REF
@@ -44,10 +44,12 @@ RUN npm install -g typescript ts-node --silent \
  && rm -rf ~/.npm
 
 ADD settings.json /home/coder/.local/share/code-server/User/settings.json
+ADD settings.json /home/coder/.local/share/code-server/Machine
+ADD settings.json /home/coder/project/.vscode/settings.json
+COPY --from=extension /prettier/*.vsix /home/coder/
 RUN chown -hR coder /home/coder
 
 USER coder
 WORKDIR /home/coder/project
-COPY --from=extension /prettier/*.vsix /home/coder/
 RUN code-server --install-extension /home/coder/*.vsix
 
