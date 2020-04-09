@@ -6,3 +6,4 @@ push
 run.sh
 .gitignore
 .travis.yml
+.git
