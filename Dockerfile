@@ -1,9 +1,4 @@
 FROM node as extension
-MAINTAINER Novs Yama
-
-ARG VCS_REF
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/frost-tb-voo/docker-code-server-ts"
 
 WORKDIR /prettier
 RUN git clone https://github.com/prettier/prettier-vscode.git \
@@ -22,9 +17,9 @@ RUN git clone https://github.com/prettier/prettier-vscode.git \
  && rm -rf /prettier/prettier-vscode
 
 FROM codercom/code-server
-MAINTAINER Novs Yama
-
 ARG VCS_REF
+
+LABEL maintainer="Novs Yama"
 LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/frost-tb-voo/docker-code-server-ts"
 
