@@ -4,7 +4,7 @@
 [![GitHub license](https://img.shields.io/github/license/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/docker-code-server-ts/blob/master/LICENSE)
 [![Docker pulls](https://img.shields.io/docker/pulls/novsyama/code-server-ts.svg?style=flat-square)](https://hub.docker.com/r/novsyama/code-server-ts)
 [![Docker image-size](https://img.shields.io/docker/image-size/novsyama/code-server-ts/latest?style=flat-square)](https://hub.docker.com/r/novsyama/code-server-ts)
-![Docker layers](https://img.shields.io/microbadger/layers/novsyama/code-server-ts.svg?style=flat-square)
+[![Docker layers](https://img.shields.io/microbadger/layers/novsyama/code-server-ts.svg?style=flat-square)](https://microbadger.com/images/novsyama/code-server-ts)
 
 An unofficial extended VSCode [code-server](https://github.com/cdr/code-server) image for latest typescript with [prettier](https://github.com/prettier/prettier-vscode).
 See [novsyama/code-server-ts](https://hub.docker.com/r/novsyama/code-server-ts/)
