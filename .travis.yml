@@ -6,7 +6,7 @@ services:
   - docker
 
 script:
-- bash build
+- bash ./hooks/build
 
 deploy:
   provider: script

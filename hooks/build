@@ -3,7 +3,7 @@
 IMAGE=codercom/code-server
 DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
-cd ${DIR}
+cd ${DIR}/..
 docker pull node
 docker pull ${IMAGE}
 docker build -t novsyama/code-server-ts --build-arg VCS_REF=`git rev-parse --short HEAD` .
