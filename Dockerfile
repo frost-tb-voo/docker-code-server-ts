@@ -18,9 +18,11 @@ RUN git clone https://github.com/prettier/prettier-vscode.git \
 
 FROM codercom/code-server
 ARG VCS_REF
+ARG BUILD_DATE
 
-LABEL maintainer="Novs Yama"
-LABEL org.label-schema.vcs-ref=$VCS_REF \
+LABEL maintainer="Novs Yama" \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/frost-tb-voo/docker-code-server-ts"
 
 USER root

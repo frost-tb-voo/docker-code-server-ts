@@ -6,6 +6,9 @@ DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 cd ${DIR}/..
 docker pull node
 docker pull ${IMAGE}
-docker build -t novsyama/code-server-ts --build-arg VCS_REF=`git rev-parse --short HEAD` .
+docker build -t novsyama/code-server-ts \
+ --build-arg VCS_REF=`git rev-parse --short HEAD` \
+ --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+ .
 docker tag novsyama/code-server-ts novsyama/code-server-ts:local
 docker images novsyama/code-server-ts
