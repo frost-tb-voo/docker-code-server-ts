@@ -1,8 +1,12 @@
-FROM node as extension
+FROM node:lts as extension
 
+#ENV PRETTIER_VERSION=v4.7.0
+#ENV PRETTIER_VERSION=v5.0.1
+ENV PRETTIER_VERSION=v5.1.0
 WORKDIR /prettier
 RUN git clone https://github.com/prettier/prettier-vscode.git \
  && cd ./prettier-vscode \
+ && git checkout ${PRETTIER_VERSION} \
  && npm install --silent \
  && npm audit fix --force \
  && npm cache clean --force \
