@@ -7,18 +7,17 @@
 [![Docker layers](https://img.shields.io/microbadger/layers/novsyama/code-server-ts.svg?style=flat-square)](https://microbadger.com/images/novsyama/code-server-ts)
 
 An unofficial extended VSCode [code-server](https://github.com/cdr/code-server) image for latest typescript with [prettier](https://github.com/prettier/prettier-vscode).
-See [novsyama/code-server-ts](https://hub.docker.com/r/novsyama/code-server-ts/)
 
 ## How
 
 ```bash
 PROJECT_DIR=<workspace absolute path>
 
-sudo docker pull novsyama/code-server-ts
+sudo docker pull ghcr.io/frost-tb-voo/code-server-ts
 sudo docker run --name=vscode --net=host -d \
- -v "${PROJECT_DIR}:/home/coder/project" \
+ -v "${PROJECT_DIR}:/home/coder/project/code-server" \
  -w /home/coder/project \
- novsyama/code-server-ts \
+ ghcr.io/frost-tb-voo/code-server-ts \
  code-server \
  --auth none
 ```
