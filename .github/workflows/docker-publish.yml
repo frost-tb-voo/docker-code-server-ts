@@ -8,10 +8,30 @@ name: Docker
 on:
   push:
     branches: [ dev ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    paths-ignore:
+      - LICENSE
+      - README.md
+      - build
+      - code-server
+      - push
+      - run.sh
+      - .gitignore
+      - .travis.yml
+      - .git
+      - hello
   pull_request:
     branches: [ master ]
+    paths-ignore:
+      - LICENSE
+      - README.md
+      - build
+      - code-server
+      - push
+      - run.sh
+      - .gitignore
+      - .travis.yml
+      - .git
+      - hello
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '43 3 * * 2'
