@@ -1,10 +1,7 @@
 # docker-code-server-ts
-[![](https://img.shields.io/travis/frost-tb-voo/docker-code-server-ts/master.svg?style=flat-square)](https://travis-ci.org/frost-tb-voo/docker-code-server-ts/)
+[![](https://img.shields.io/github/workflow/status/frost-tb-voo/docker-code-server-ts/Docker?style=flat-square)](https://github.com/frost-tb-voo/docker-code-server-ts/actions/workflows/docker-publish.yml)
 [![GitHub stars](https://img.shields.io/github/stars/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/docker-code-server-ts/stargazers)
 [![GitHub license](https://img.shields.io/github/license/frost-tb-voo/docker-code-server-ts.svg?style=flat-square)](https://github.com/frost-tb-voo/docker-code-server-ts/blob/master/LICENSE)
-[![Docker pulls](https://img.shields.io/docker/pulls/novsyama/code-server-ts.svg?style=flat-square)](https://hub.docker.com/r/novsyama/code-server-ts)
-[![Docker image-size](https://img.shields.io/docker/image-size/novsyama/code-server-ts/latest?style=flat-square)](https://hub.docker.com/r/novsyama/code-server-ts)
-[![Docker layers](https://img.shields.io/microbadger/layers/novsyama/code-server-ts.svg?style=flat-square)](https://microbadger.com/images/novsyama/code-server-ts)
 
 An unofficial extended VSCode [code-server](https://github.com/cdr/code-server) image for latest typescript with [prettier](https://github.com/prettier/prettier-vscode).
 
