@@ -7,7 +7,7 @@ name: Docker
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ dev, master ]
     paths-ignore:
       - LICENSE
       - README.md
@@ -19,6 +19,7 @@ on:
       - .travis.yml
       - .git
       - hello
+      - hooks
   pull_request:
     branches: [ master ]
     paths-ignore:
@@ -32,6 +33,7 @@ on:
       - .travis.yml
       - .git
       - hello
+      - hooks
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '43 3 * * 2'

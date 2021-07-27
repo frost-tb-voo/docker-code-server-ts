@@ -1,15 +1,17 @@
 #!/bin/sh
 
 IMAGE=codercom/code-server
+NEW_IMAGE=ghcr.io/frost-tb-voo/code-server-ts
 DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 
 cd ${DIR}/..
 docker pull node:lts
 docker pull ${IMAGE}
-docker build -t novsyama/code-server-ts \
+docker build -t ${NEW_IMAGE} \
  --build-arg VCS_REF=`git rev-parse --short HEAD` \
  --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
  --no-cache \
  .
-docker tag novsyama/code-server-ts novsyama/code-server-ts:local
-docker images novsyama/code-server-ts
+docker tag ${NEW_IMAGE} ${NEW_IMAGE}:local
+docker images ${NEW_IMAGE}
+
