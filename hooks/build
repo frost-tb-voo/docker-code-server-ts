@@ -3,7 +3,7 @@
 IMAGE=codercom/code-server
 NEW_IMAGE=ghcr.io/frost-tb-voo/code-server-ts
 DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
-
+echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 cd ${DIR}/..
 docker pull node:lts
 docker pull ${IMAGE}
