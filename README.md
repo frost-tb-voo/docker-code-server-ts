@@ -40,7 +40,12 @@ If you want to preserve the settings and extensions, please mount following path
 - Go to http://localhost:8080 and open the terminal and type
   - `code-server --install-extension $vsix_filepath`
 
-## Similar official functionality in vscode
+## Links
+You can find official info from the following repo:
+
+https://github.com/coder/deploy-code-server
+
+### Similar official functionality in vscode
 [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers)
 
 This requires local installed visual studio code.
