@@ -2,18 +2,17 @@ FROM node:lts as extension
 
 #ENV PRETTIER_VERSION=v4.7.0
 #ENV PRETTIER_VERSION=v5.0.1
-ENV PRETTIER_VERSION=v5.1.0
+#ENV PRETTIER_VERSION=v5.1.0
+ENV PRETTIER_VERSION=v11.0.0
 WORKDIR /prettier
 RUN git clone https://github.com/prettier/prettier-vscode.git \
  && cd ./prettier-vscode \
  && git checkout ${PRETTIER_VERSION} \
  && npm install --silent \
+ && npm uninstall vsce \
+ && npm install @vscode/vsce@2.15.0 \
  && npm audit fix --force \
- && npm cache clean --force \
- && rm -rf node_modules package-lock.json \
- && npm install --silent \
- && npm audit fix --force \
- && ./node_modules/vsce/out/vsce package \
+ && ./node_modules/@vscode/vsce/vsce package \
  && npm cache clean --force \
  && rm -rf ~/.npm \
  && mv *.vsix ../ \
